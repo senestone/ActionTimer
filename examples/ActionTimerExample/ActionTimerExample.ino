@@ -37,9 +37,8 @@ const unsigned long duration = 2000;   // duration value set as constant
  * the myState global varialble  to the serial monitor.
  ***********************************************************************/
 void logMessage() {
-  char msg[32];
-  sprintf(msg, "The current state is %s", (myState) ? "true" : "false");
-  Serial.println(msg);
+  // display message to serial monitor
+  Serial.println("The current state is " + String((myState) ? "true" : "false"));
 }
 
 
