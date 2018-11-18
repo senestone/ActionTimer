@@ -52,12 +52,13 @@ ActionTimer::~ActionTimer() {
  *   This method sets the expiration time for the ActionTimer object and
  * sets the expired state to false.
  ***********************************************************************/
-void ActionTimer::start(unsigned long duration) {
+void ActionTimer::start(unsigned long _duration) {
   // set the expiration state to false
   expirationState = false;
 
   // set the expiration time to the current time plus the specified duration
-  expirationTime = millis() + duration;
+  startTime = millis();
+  duration = _duration;
 }
 
 /***********************************************************************
@@ -72,7 +73,7 @@ void ActionTimer::start(unsigned long duration) {
  ***********************************************************************/
 bool ActionTimer::isExpired() {
   // test to see if the timer has expired
-  if (millis() > expirationTime) {
+  if (!expirationState && millis() - startTime >= duration) {
     // yes, set the state to true
     expirationState = true;
   }

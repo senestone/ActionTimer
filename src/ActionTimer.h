@@ -23,7 +23,8 @@ class ActionTimer {
     bool isExpired();
   private:
     bool expirationState;
-    unsigned long expirationTime;
+    unsigned long startTime;
+    unsigned long duration;
 };
 
 #endif
